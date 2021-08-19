@@ -10,7 +10,7 @@
 #define NUMBER_OF_BLOCKS 1
 #define BUFFER_SIZE (NUMBER_OF_BLOCKS * BLOCK_SIZE)
 
-static char *certificate_path = "";
+static char *certificate = "";
 static char *certificate_authority = "";
 static char *private_key = "";
 
@@ -43,7 +43,7 @@ int main(void)
     ctx = coap_new_context(NULL);
     coap_context_set_block_mode(ctx, COAP_BLOCK_USE_LIBCOAP);
 
-    set_certificate(certificate_path);
+    set_certificate(certificate);
     set_certificate_authority(certificate_authority);
     set_private_key(private_key);
 
