@@ -7,7 +7,7 @@
 #include "shared.h"
 
 #define BLOCK_SIZE 1024
-#define NUMBER_OF_BLOCKS 1
+#define NUMBER_OF_BLOCKS 10
 #define BUFFER_SIZE (NUMBER_OF_BLOCKS * BLOCK_SIZE)
 
 static char *certificate = "";
