@@ -102,9 +102,14 @@ int main()
     coap_context_t *ctx = NULL;
     coap_address_t dst;
     int result = EXIT_FAILURE;
+    uint16_t cache_ignore_options[] = { COAP_OPTION_BLOCK1,
+                                        COAP_OPTION_BLOCK2,
+                                        COAP_OPTION_MAXAGE,
+                                        COAP_OPTION_IF_NONE_MATCH };
+
     coap_startup();
 
-    if (resolve_address("localhost", "5683", &dst) < 0)
+    if (resolve_address("localhost", "5684", &dst) < 0)
     {
         coap_log(LOG_CRIT, "failed to resolve address\n");
         goto end;
@@ -112,6 +117,8 @@ int main()
 
     ctx = coap_new_context(NULL);
     coap_context_set_block_mode(ctx, COAP_BLOCK_USE_LIBCOAP);
+    coap_cache_ignore_options(ctx, cache_ignore_options,
+                              sizeof(cache_ignore_options)/sizeof(cache_ignore_options[0]));
 
     set_certificate(certificate);
     set_certificate_authority(certificate_authority);

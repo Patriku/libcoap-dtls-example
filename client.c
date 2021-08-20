@@ -34,7 +34,7 @@ int main(void)
 
     coap_startup();
 
-    if (resolve_address("localhost", "5683", &server_address) < 0)
+    if (resolve_address("localhost", "5684", &server_address) < 0)
     {
         coap_log(LOG_CRIT, "failed to resolve server_address\n");
         goto end;
